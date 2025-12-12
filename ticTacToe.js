@@ -57,10 +57,16 @@ function checkGameStatus() {
             console.log("row = 3 yes");
             console.log(row[0], row[1],row[2]);
             
-            
+            // in a row win verification
             if ((row[0] === row[1] && row[1] === row[2]) && row[0] != 1) {
                 alert("Player of the "+row[0]+" won")
             }
+        }
+    }
+
+    for (let i = 0; i < 3; i++) {
+        if ((game[0][i] === game[1][i] && game[1][i] === game[2][0]) && game[0][i] != 1) {
+            alert("Player of the "+game[0][i]+" won")
         }
     }
 }
