@@ -1,3 +1,8 @@
+body {
+    font-size: 80px;
+    color: #fff;
+}
+
 main {
     display: flex;
     flex-direction: column;
@@ -26,10 +31,18 @@ section {
     background-color: rgb(31, 84, 31);
     width: 30%;
     height: 100%;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .odd {
     background-color: rgb(123, 100, 14);
     width: 30%;
     height: 100%;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
