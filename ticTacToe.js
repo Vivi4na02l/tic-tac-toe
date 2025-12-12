@@ -1,8 +1,10 @@
 let game = [
-    [],
-    [],
-    [],
+    [1,1,1],
+    [1,1,1],
+    [1,1,1],
 ];
+
+let nbrPlays = 0;
 
 let oddSquares = document.querySelectorAll(".odd")
 let evenSquares = document.querySelectorAll(".even")
@@ -15,7 +17,7 @@ let turn = "x";
  * @param {*} e event
  */
 function square(row, square, e) {
-    if (isSquareFree(row, square, e)) { 
+    if (isSquareFree(e)) { 
         if (turn == "x") {
             e.target.innerHTML = `x`;
             savePos(row, square, turn)
@@ -25,10 +27,16 @@ function square(row, square, e) {
             savePos(row, square, turn)
             turn = "x"
         }
+
+        nbrPlays++;
+    }
+
+    if (nbrPlays >= 3) {
+        checkGameStatus();
     }
 }
 
-function isSquareFree(row, square, e) {
+function isSquareFree(e) {
     if (e.target.innerHTML == "x" || e.target.innerHTML == "o") {
         return false;
     } else {
@@ -39,4 +47,20 @@ function isSquareFree(row, square, e) {
 function savePos(row, square) {
     game[row-1][square-1] = turn;
     console.log(game);
+}
+
+function checkGameStatus() {
+    console.log("entrei fun");
+    
+    for (const row of game) {
+        if (row.length = 3) {
+            console.log("row = 3 yes");
+            console.log(row[0], row[1],row[2]);
+            
+            
+            if ((row[0] === row[1] && row[1] === row[2]) && row[0] != 1) {
+                alert("Player of the "+row[0]+" won")
+            }
+        }
+    }
 }
